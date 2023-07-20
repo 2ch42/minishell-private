@@ -1,38 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   token.h                                            :+:      :+:    :+:   */
+/*   init_token.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: changhyl <changhyl@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/18 20:41:21 by changhyl          #+#    #+#             */
-/*   Updated: 2023/07/20 18:05:12 by changhyl         ###   ########.fr       */
+/*   Created: 2023/07/20 19:27:30 by changhyl          #+#    #+#             */
+/*   Updated: 2023/07/20 19:28:16 by changhyl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TOKEN_H
-# define TOKEN_H
+#include <stdlib.h>
+#include "token.h"
 
-typedef enum e_tk_st
+t_tk_list	*init_tk_list(void)
 {
-	outside = 1,
-	inside = 2,
-	quote = 3,
-	op = 4,
-	may_change = 5
-}	t_tk_st;
+	t_tk_list	*new_tk_list;
 
-typedef struct s_tk
+	new_tk_list = (t_tk_list *)malloc(sizeof(t_tk_list));
+	if (!new_tk_list)
+		return (NULL);
+	new_tk_list->head = NULL;
+	new_tk_list->tail = NULL;
+}
+
+t_tk	*init_tk(void)
 {
-	char	*str;
-	t_tk	*next;
-	int		errno;
-}	t_tk;
+	t_tk	new_tk;
 
-typedef struct	s_tk_list
-{
-	t_tk	*head;
-	t_tk	*tail;
-}	t_tk_list;
-
-#endif
+	new_tk = (t_tk)malloc(sizeof(t_tk));
+	if (!new_tk)
+		return (NULL);
+	new_tk->next = NULL;
+	return (new_tk);
+}
