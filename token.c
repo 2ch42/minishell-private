@@ -6,7 +6,7 @@
 /*   By: changhyl <changhyl@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 20:41:29 by changhyl          #+#    #+#             */
-/*   Updated: 2023/07/21 17:22:19 by changhyl         ###   ########.fr       */
+/*   Updated: 2023/07/21 22:26:09 by ch               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,22 @@ void	fill_token(t_tk_list *tk_list)
 	tk = t_tk_list->head;
 }
 
+int	check_new_tk(t_state prev_st, t_state cur_st)
+{
+	if (prev_st == outside && prev_st != outside)
+		return (1);
+	if (cur_st == operator)
+		return (1);
+	if (cur_st != outside && prev_st == operator)
+		return (1);
+	return (0);
+}
+
 t_tk_list	tokenize(char *str)
 {
 	int			i;
-	t_tk_st		prev_st;
-	t_tk_st		cur_st;
+	t_state		prev_st;
+	t_state		cur_st;
 	t_tk_list	tk_list;
 	t_tk		*tk;
 
@@ -55,7 +66,7 @@ t_tk_list	tokenize(char *str)
 	while (*(str + i))
 	{
 		cur_st = check_st(*(str + i));
-		if (prev_st == outside && cur_st != outside)
+		if (check_new_tk(prev_st, cur_st))
 			tk = add_token(&tk_list);
 		if (cur_st != outside)
 			tk->str = tk_strjoin(tk->str, *(str + i));

@@ -6,14 +6,14 @@
 /*   By: changhyl <changhyl@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 20:41:21 by changhyl          #+#    #+#             */
-/*   Updated: 2023/07/21 16:11:10 by changhyl         ###   ########.fr       */
+/*   Updated: 2023/07/21 20:14:15 by ch               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef TOKEN_H
 # define TOKEN_H
 
-typedef enum e_tk_st
+typedef enum e_state
 {
 	outside = 1,
 	inside = 2,

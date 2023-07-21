@@ -6,7 +6,7 @@
 /*   By: changhyl <changhyl@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 19:43:24 by changhyl          #+#    #+#             */
-/*   Updated: 2023/07/20 21:48:44 by changhyl         ###   ########.fr       */
+/*   Updated: 2023/07/21 20:10:17 by ch               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	is_may_change(char c)
 	return (0);
 }
 
-t_tk_st	check_st(char c)
+t_state	check_st(char c)
 {
 	if (is_outside(c))
 		return (outside);
