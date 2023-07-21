@@ -6,7 +6,7 @@
 /*   By: changhyl <changhyl@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 20:41:21 by changhyl          #+#    #+#             */
-/*   Updated: 2023/07/20 18:05:12 by changhyl         ###   ########.fr       */
+/*   Updated: 2023/07/21 16:11:10 by changhyl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct	s_tk_list
 {
 	t_tk	*head;
 	t_tk	*tail;
+	int		errno;
 }	t_tk_list;
 
 #endif
