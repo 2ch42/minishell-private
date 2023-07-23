@@ -6,8 +6,13 @@
 /*   By: changhyl <changhyl@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 20:45:20 by changhyl          #+#    #+#             */
-/*   Updated: 2023/07/18 20:45:22 by changhyl         ###   ########.fr       */
+/*   Updated: 2023/07/23 20:12:20 by ch               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef SYNTAX_H
+# define SYNTAX_H
 
+# include "token.h"
+
+#endif

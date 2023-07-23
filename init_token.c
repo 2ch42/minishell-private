@@ -6,7 +6,7 @@
 /*   By: changhyl <changhyl@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 19:27:30 by changhyl          #+#    #+#             */
-/*   Updated: 2023/07/21 16:11:35 by changhyl         ###   ########.fr       */
+/*   Updated: 2023/07/23 20:20:40 by ch               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ t_tk_list	*init_tk_list(void)
 		return (NULL);
 	new_tk_list->head = NULL;
 	new_tk_list->tail = NULL;
-	new_tk_list->errno = 0;
+	return (new_tk_list);
 }
 
 t_tk	*init_tk(void)
@@ -33,6 +33,10 @@ t_tk	*init_tk(void)
 	if (!new_tk)
 		return (NULL);
 	new_tk->next = NULL;
-	new_tk->errno = 0;
+	new_tk->single_q = 0;
+	new_tk->double_q = 0;
+	new_tk->redirect_l = 0;
+	new_tk->redirect_r = 0;
+	new_tk->pipeline = 0;
 	return (new_tk);
 }

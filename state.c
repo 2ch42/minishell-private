@@ -6,7 +6,7 @@
 /*   By: changhyl <changhyl@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 19:43:24 by changhyl          #+#    #+#             */
-/*   Updated: 2023/07/21 20:10:17 by ch               ###   ########.fr       */
+/*   Updated: 2023/07/23 19:35:48 by ch               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,15 @@ int	is_may_change(char c)
 	return (0);
 }
 
-t_state	check_st(char c)
+t_state	check_st(t_tk *tk, char c)
 {
+	if (tk != NULL)
+	{
+		if (tk->single_q % 2 == 1 && c != '\'')
+			return (inside);
+		if (tk->double_q % 2 == 1 && c != '\"')
+			return (inside);
+	}
 	if (is_outside(c))
 		return (outside);
 	else if (is_quote(c))
