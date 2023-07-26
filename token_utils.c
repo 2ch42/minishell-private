@@ -6,13 +6,13 @@
 /*   By: changhyl <changhyl@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 20:53:01 by changhyl          #+#    #+#             */
-/*   Updated: 2023/07/21 16:29:04 by changhyl         ###   ########.fr       */
+/*   Updated: 2023/07/26 20:57:03 by changhyl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-static size_t	ft_strlen(const	char *s)
+size_t	tk_strlen(const	char *s)
 {
 	int	len;
 
@@ -30,7 +30,7 @@ char	*tk_strjoin(char *s1, char s2)
 	size_t	s1_len;
 	size_t	i;
 
-	s1_len = ft_strlen(s1);
+	s1_len = tk_strlen(s1);
 	ret_str = (char *)malloc(sizeof(char) * (s1_len + 2));
 	if (!ret_str)
 		return (NULL);
