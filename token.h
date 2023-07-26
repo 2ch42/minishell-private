@@ -6,7 +6,7 @@
 /*   By: changhyl <changhyl@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 20:41:21 by changhyl          #+#    #+#             */
-/*   Updated: 2023/07/27 01:01:42 by changhyl         ###   ########.fr       */
+/*   Updated: 2023/07/27 02:44:19 by changhyl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ typedef struct s_tk
 	int		pipeline;
 }	t_tk;
 
-typedef struct	s_tk_list
+typedef struct s_tk_list
 {
 	t_tk	*head;
 	t_tk	*tail;

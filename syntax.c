@@ -6,7 +6,7 @@
 /*   By: changhyl <changhyl@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 20:45:13 by changhyl          #+#    #+#             */
-/*   Updated: 2023/07/26 21:32:13 by changhyl         ###   ########.fr       */
+/*   Updated: 2023/07/27 02:47:08 by changhyl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,8 @@ t_tk	*check_op_syntax(t_tk_list *tk_list)
 t_tk_list	*check_syntax(char *str)
 {
 	t_tk_list	*tk_list;
-
 	t_tk		*tk;
+
 	tk_list = tokenize(str);
 	if (!tk_list)
 		return ;
@@ -56,7 +56,7 @@ t_tk_list	*check_syntax(char *str)
 	{
 		write(2, "minishell: syntax error near unexpected token `newline'\n", 57);
 		tk_clear(tk_list);
-	 	return (NULL);
+		return (NULL);
 	}
 	tk = check_op_syntax(tk_list);
 	if (tk != NULL)
