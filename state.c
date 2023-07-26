@@ -6,13 +6,13 @@
 /*   By: changhyl <changhyl@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 19:43:24 by changhyl          #+#    #+#             */
-/*   Updated: 2023/07/23 19:35:48 by ch               ###   ########.fr       */
+/*   Updated: 2023/07/27 00:57:31 by changhyl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "token.h"
 
-int	is_outside(char c)
+static int	is_outside(char c)
 {
 	if (c == ' ' || c == '\t' || c == '\v'
 		|| c == '\f' || c == '\r')
@@ -20,21 +20,21 @@ int	is_outside(char c)
 	return (0);
 }
 
-int	is_quote(char c)
+static int	is_quote(char c)
 {
 	if (c == '\"' || '\'')
 		return (1);
 	return (0);
 }
 
-int	is_op(char c)
+static int	is_op(char c)
 {
 	if (c == '|')
 		return (1);
 	return (0);
 }
 
-int	is_may_change(char c)
+static int	is_may_change(char c)
 {
 	if (c == '<' || c == '>')
 		return (1);
