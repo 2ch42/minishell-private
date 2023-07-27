@@ -6,7 +6,7 @@
 /*   By: changhyl <changhyl@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 20:45:13 by changhyl          #+#    #+#             */
-/*   Updated: 2023/07/27 23:01:34 by changhyl         ###   ########.fr       */
+/*   Updated: 2023/07/27 23:46:49 by changhyl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static int	is_op_or_m(char c)
 	return (0);
 }
 
-t_tk	*check_op_syntax(t_tk_list *tk_list)
+static t_tk	*check_op_syntax(t_tk_list *tk_list)
 {
 	t_tk	*p;
 	t_tk	*q;

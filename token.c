@@ -6,7 +6,7 @@
 /*   By: changhyl <changhyl@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 20:41:29 by changhyl          #+#    #+#             */
-/*   Updated: 2023/07/27 23:19:32 by changhyl         ###   ########.fr       */
+/*   Updated: 2023/07/28 00:45:54 by changhyl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ static t_tk	*add_token(t_tk_list	*tk_list)
 {
 	t_tk	*new_tk;
 
-	if (!tk_list)
-		tk_list = init_tk_list();
 	new_tk = init_tk();
 	if (!tk_list || !new_tk)
 	{
@@ -30,7 +28,7 @@ static t_tk	*add_token(t_tk_list	*tk_list)
 	{
 		tk_list->head = new_tk;
 		tk_list->tail = new_tk;
-		return (new_tk);
+		return (tk_list->head);
 	}
 	tk_list->tail->next = new_tk;
 	tk_list->tail = new_tk;
@@ -60,6 +58,8 @@ static int	check_new_tk(t_state prev_st, t_state cur_st, t_tk *tk, char c)
 		return (1);
 	if (cur_st != outside && prev_st == op)
 		return (1);
+	if (prev_st != outside && prev_st != may_change && cur_st == may_change)
+		return (1);
 	if (prev_st == may_change && cur_st != outside
 		&& cur_st != may_change)
 		return (1);
@@ -85,7 +85,7 @@ t_tk_list	*tokenize(char *str)
 
 	i = 0;
 	prev_st = outside;
-	tk_list = NULL;
+	tk_list = init_tk_list();
 	tk = NULL;
 	while (*(str + i))
 	{

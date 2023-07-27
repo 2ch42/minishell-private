@@ -6,7 +6,7 @@
 /*   By: changhyl <changhyl@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 20:41:21 by changhyl          #+#    #+#             */
-/*   Updated: 2023/07/27 23:19:06 by changhyl         ###   ########.fr       */
+/*   Updated: 2023/07/27 23:47:32 by changhyl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,6 @@ t_tk		*init_tk(void);
 t_state		check_st(t_tk *tk, char c);
 void		tk_clear(t_tk_list *tk_list);
 t_tk_list	*tokenize(char *str);
+t_tk_list	*check_syntax(char *str);
 
 #endif
