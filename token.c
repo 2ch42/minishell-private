@@ -6,7 +6,7 @@
 /*   By: changhyl <changhyl@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 20:41:29 by changhyl          #+#    #+#             */
-/*   Updated: 2023/07/27 13:12:18 by changhyl         ###   ########.fr       */
+/*   Updated: 2023/07/27 23:19:32 by changhyl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static t_tk	*add_token(t_tk_list	*tk_list)
 	t_tk	*new_tk;
 
 	if (!tk_list)
-		tk_list = init_tk_list;
+		tk_list = init_tk_list();
 	new_tk = init_tk();
 	if (!tk_list || !new_tk)
 	{
@@ -28,13 +28,13 @@ static t_tk	*add_token(t_tk_list	*tk_list)
 	}
 	if (tk_list->head == NULL)
 	{
-		tk_list->head = tk;
-		tk_list->tail = tk;
-		return ;
+		tk_list->head = new_tk;
+		tk_list->tail = new_tk;
+		return (new_tk);
 	}
-	tk_list->tail->next = tk;
-	tk_list->tail = tk;
-	return (tk_list->tail);
+	tk_list->tail->next = new_tk;
+	tk_list->tail = new_tk;
+	return (new_tk);
 }
 
 static void	fill_token(t_tk *tk, t_state cur_st, char c)
@@ -43,11 +43,11 @@ static void	fill_token(t_tk *tk, t_state cur_st, char c)
 		tk->redirect_r++;
 	else if (c == '<' && cur_st == may_change)
 		tk->redirect_l++;
-	else if (c == '|' && cur_st == operator)
+	else if (c == '|' && cur_st == op)
 		tk->pipeline++;
-	else if (c == '\'' && cur_st == quote && tk->double_q == 0)
+	else if (c == '\'' && cur_st == quote)
 		tk->single_q++;
-	else if (c == '\"' && cur_st == quote && tk->single_q == 0)
+	else if (c == '\"' && cur_st == quote)
 		tk->double_q++;
 	return ;
 }
@@ -56,9 +56,9 @@ static int	check_new_tk(t_state prev_st, t_state cur_st, t_tk *tk, char c)
 {
 	if (prev_st == outside && cur_st != outside)
 		return (1);
-	if (cur_st == operator)
+	if (cur_st == op)
 		return (1);
-	if (cur_st != outside && prev_st == operator)
+	if (cur_st != outside && prev_st == op)
 		return (1);
 	if (prev_st == may_change && cur_st != outside
 		&& cur_st != may_change)
@@ -90,7 +90,7 @@ t_tk_list	*tokenize(char *str)
 	while (*(str + i))
 	{
 		cur_st = check_st(tk, *(str + i));
-		if (check_new_tk(prev_st, cur_st, &tk, *(str + i)))
+		if (check_new_tk(prev_st, cur_st, tk, *(str + i)))
 			tk = add_token(tk_list);
 		if (cur_st != outside)
 		{

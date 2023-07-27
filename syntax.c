@@ -6,7 +6,7 @@
 /*   By: changhyl <changhyl@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 20:45:13 by changhyl          #+#    #+#             */
-/*   Updated: 2023/07/27 22:48:03 by changhyl         ###   ########.fr       */
+/*   Updated: 2023/07/27 23:01:34 by changhyl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ static int	is_op_or_m(char c)
 
 t_tk	*check_op_syntax(t_tk_list *tk_list)
 {
-	t_tk	p;
-	t_tk	q;
+	t_tk	*p;
+	t_tk	*q;
 
 	if (tk_list->head == NULL)
 		return (NULL);
@@ -36,7 +36,7 @@ t_tk	*check_op_syntax(t_tk_list *tk_list)
 	q = tk_list->head;
 	while (p != NULL)
 	{
-		if (is_op_or_m(p->str) && is_op_or_m(q->str))
+		if (is_op_or_m(*(p->str)) && is_op_or_m(*(q->str)))
 			return (p);
 		q = p;
 		p = p->next;
@@ -51,7 +51,7 @@ t_tk_list	*check_syntax(char *str)
 
 	tk_list = tokenize(str);
 	if (!tk_list)
-		return ;
+		return (NULL);
 	if (tk_list->tail->single_q % 2 == 1 || tk_list->tail->double_q % 2 == 1)
 	{
 		write(2, "minishell: syntax error near unexpected token `newline'\n", 57);

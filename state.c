@@ -6,7 +6,7 @@
 /*   By: changhyl <changhyl@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 19:43:24 by changhyl          #+#    #+#             */
-/*   Updated: 2023/07/27 00:57:31 by changhyl         ###   ########.fr       */
+/*   Updated: 2023/07/27 22:59:40 by changhyl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static int	is_outside(char c)
 
 static int	is_quote(char c)
 {
-	if (c == '\"' || '\'')
+	if (c == '\"' || c == '\'')
 		return (1);
 	return (0);
 }

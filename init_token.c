@@ -6,7 +6,7 @@
 /*   By: changhyl <changhyl@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 19:27:30 by changhyl          #+#    #+#             */
-/*   Updated: 2023/07/23 20:20:40 by ch               ###   ########.fr       */
+/*   Updated: 2023/07/27 22:58:46 by changhyl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ t_tk_list	*init_tk_list(void)
 
 t_tk	*init_tk(void)
 {
-	t_tk	new_tk;
+	t_tk	*new_tk;
 
-	new_tk = (t_tk)malloc(sizeof(t_tk));
+	new_tk = (t_tk *)malloc(sizeof(t_tk));
 	if (!new_tk)
 		return (NULL);
 	new_tk->next = NULL;
