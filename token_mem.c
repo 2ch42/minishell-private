@@ -6,7 +6,7 @@
 /*   By: changhyl <changhyl@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 20:05:35 by changhyl          #+#    #+#             */
-/*   Updated: 2023/07/27 22:56:33 by changhyl         ###   ########.fr       */
+/*   Updated: 2023/07/28 01:02:29 by changhyl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	tk_clear(t_tk_list *tk_list)
 			free(q);
 			q = NULL;
 			q = p;
-			q = q->next;
+			p = p->next;
 		}
 		free(q);
 		q = NULL;
