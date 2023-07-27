@@ -6,7 +6,7 @@
 /*   By: changhyl <changhyl@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 20:41:29 by changhyl          #+#    #+#             */
-/*   Updated: 2023/07/26 21:00:10 by changhyl         ###   ########.fr       */
+/*   Updated: 2023/07/27 13:12:18 by changhyl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,9 @@ static void	fill_token(t_tk *tk, t_state cur_st, char c)
 		tk->redirect_l++;
 	else if (c == '|' && cur_st == operator)
 		tk->pipeline++;
-	else if (c == '\'' && cur_st == quote)
+	else if (c == '\'' && cur_st == quote && tk->double_q == 0)
 		tk->single_q++;
-	else if (c == '\"' && cur_st == quote)
+	else if (c == '\"' && cur_st == quote && tk->single_q == 0)
 		tk->double_q++;
 	return ;
 }
