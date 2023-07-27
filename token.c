@@ -6,7 +6,7 @@
 /*   By: changhyl <changhyl@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 20:41:29 by changhyl          #+#    #+#             */
-/*   Updated: 2023/07/28 00:45:54 by changhyl         ###   ########.fr       */
+/*   Updated: 2023/07/28 00:53:13 by changhyl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static t_tk	*add_token(t_tk_list	*tk_list)
 	{
 		tk_list->head = new_tk;
 		tk_list->tail = new_tk;
-		return (tk_list->head);
+		return (new_tk);
 	}
 	tk_list->tail->next = new_tk;
 	tk_list->tail = new_tk;
