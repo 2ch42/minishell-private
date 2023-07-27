@@ -6,13 +6,13 @@
 /*   By: changhyl <changhyl@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 20:45:13 by changhyl          #+#    #+#             */
-/*   Updated: 2023/07/27 02:47:08 by changhyl         ###   ########.fr       */
+/*   Updated: 2023/07/27 22:48:03 by changhyl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <stdlib.h>
-#include "syntax.h"
+#include "token.h"
 
 static int	is_op_or_m(char c)
 {
