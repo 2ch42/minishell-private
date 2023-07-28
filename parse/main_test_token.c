@@ -15,6 +15,9 @@ int main()	//test main for token
 		printf("%s\n", tk->str);
 		printf("redirect_l : %d\n", tk->redirect_l);
 		printf("redirect_r : %d\n", tk->redirect_r);
+		printf("single_q : %d\n", tk->single_q);
+		printf("double_q : %d\n", tk->double_q);
+		printf("tktype: %d\n", tk->tktype);
 		tk = tk->next;
 	}
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: changhyl <changhyl@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 20:41:21 by changhyl          #+#    #+#             */
-/*   Updated: 2023/07/27 23:47:32 by changhyl         ###   ########.fr       */
+/*   Updated: 2023/07/28 20:34:52 by changhyl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,25 @@ typedef enum e_state
 	may_change = 5
 }	t_state;
 
+typedef enum e_tktype
+{
+	word = 1,
+	redirect_l = 2,
+	redirect_r = 3,
+	heredoc = 4,
+	append = 5,
+	pipeline = 6
+}	t_tktype;
+
 typedef struct s_tk
 {
-	char	*str;
-	int		single_q;
-	int		double_q;
-	int		redirect_l;
-	int		redirect_r;
-	int		pipeline;
+	char		*str;
+	int			single_q;
+	int			double_q;
+	int			redirect_l;
+	int			redirect_r;
+	int			pipeline;
+	t_tktype	tktype;
 	struct s_tk	*next;
 }	t_tk;
 

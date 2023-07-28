@@ -6,7 +6,7 @@
 /*   By: changhyl <changhyl@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 20:41:29 by changhyl          #+#    #+#             */
-/*   Updated: 2023/07/28 00:53:13 by changhyl         ###   ########.fr       */
+/*   Updated: 2023/07/28 21:18:25 by changhyl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ static int	check_new_tk(t_state prev_st, t_state cur_st, t_tk *tk, char c)
 			return (1);
 		if (tk->redirect_r > 0 && c == '<')
 			return (1);
-		if (tk->redirect_l == 2 || tk->redirect_r == 2)
+		if (tk->redirect_l == 2 || tk->redirect_r == 2 && cur_st != outside)
 			return (1);
 	}
 	return (0);

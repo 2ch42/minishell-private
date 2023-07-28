@@ -15,6 +15,11 @@ int main()	//test main for syntax
 		while (tk != NULL)
 		{
 			printf("%s\n", tk->str);
+			printf("redirect_l : %d\n", tk->redirect_l);
+			printf("redirect_r : %d\n", tk->redirect_r);
+			printf("single_q : %d\n", tk->single_q);
+			printf("double_q : %d\n", tk->double_q);
+			printf("tktype: %d\n", tk->tktype);
 			tk = tk->next;
 		}
 	}
