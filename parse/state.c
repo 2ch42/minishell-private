@@ -6,7 +6,7 @@
 /*   By: changhyl <changhyl@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 19:43:24 by changhyl          #+#    #+#             */
-/*   Updated: 2023/07/27 22:59:40 by changhyl         ###   ########.fr       */
+/*   Updated: 2023/07/28 21:46:36 by changhyl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,22 +41,25 @@ static int	is_may_change(char c)
 	return (0);
 }
 
-t_state	check_st(t_tk *tk, char c)
+t_state	check_st(t_tk *tk, char *str, int i)
 {
+	if (i > 0)
+		if (!is_outside(*(str + i)) && *(str + i - 1) == '\\')
+			return (inside);
 	if (tk != NULL)
 	{
-		if (tk->single_q % 2 == 1 && c != '\'')
+		if (tk->single_q % 2 == 1 && *(str + i) != '\'')
 			return (inside);
-		if (tk->double_q % 2 == 1 && c != '\"')
+		if (tk->double_q % 2 == 1 && *(str + i) != '\"')
 			return (inside);
 	}
-	if (is_outside(c))
+	if (is_outside(*(str + i)))
 		return (outside);
-	else if (is_quote(c))
+	else if (is_quote(*(str + i)))
 		return (quote);
-	else if (is_op(c))
+	else if (is_op(*(str + i)))
 		return (op);
-	else if (is_may_change(c))
+	else if (is_may_change(*(str + i)))
 		return (may_change);
 	else
 		return (inside);

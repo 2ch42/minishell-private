@@ -6,7 +6,7 @@
 /*   By: changhyl <changhyl@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 20:41:29 by changhyl          #+#    #+#             */
-/*   Updated: 2023/07/28 21:18:25 by changhyl         ###   ########.fr       */
+/*   Updated: 2023/07/28 21:44:33 by changhyl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ t_tk_list	*tokenize(char *str)
 	tk = NULL;
 	while (*(str + i))
 	{
-		cur_st = check_st(tk, *(str + i));
+		cur_st = check_st(tk, str, i);
 		if (check_new_tk(prev_st, cur_st, tk, *(str + i)))
 			tk = add_token(tk_list);
 		if (cur_st != outside)
