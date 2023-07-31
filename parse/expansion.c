@@ -6,11 +6,11 @@
 /*   By: changhyl <changhyl@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 20:39:21 by changhyl          #+#    #+#             */
-/*   Updated: 2023/07/31 21:48:22 by ch               ###   ########.fr       */
+/*   Updated: 2023/07/31 22:42:09 by changhyl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parse.h"
+#include "token.h"
 #include "builtin.h"
 
 t_tk_list	*(t_tk_list *tk_list, t_hash_map *hash_map)
