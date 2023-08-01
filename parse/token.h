@@ -6,7 +6,7 @@
 /*   By: changhyl <changhyl@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 20:41:21 by changhyl          #+#    #+#             */
-/*   Updated: 2023/07/30 22:44:40 by changhyl         ###   ########.fr       */
+/*   Updated: 2023/08/01 19:54:33 by changhyl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ typedef struct s_tk
 	int			redirect_l;
 	int			redirect_r;
 	int			pipeline;
+	int			new_sig;
 	t_tktype	tktype;
 	struct s_tk	*next;
 }	t_tk;
@@ -53,12 +54,15 @@ typedef struct s_tk_list
 }	t_tk_list;
 
 size_t		tk_strlen(const char *s);
-char		*tk_strjoin(char *s1, char s2);
+char		*tk_strjoin(t_tk *tk, char s2);
 t_tk_list	*init_tk_list(void);
 t_tk		*init_tk(void);
 t_state		check_st(t_tk *tk, char c);
 void		tk_clear(t_tk_list *tk_list);
 t_tk_list	*tokenize(char *str);
+void		syn_err_nl(t_tk_list *tk_list);
+void		syn_err_nnl(char *str, t_tk_list *tk_list);
+void		fill_tktype(t_tk_list *tk_list);
 t_tk_list	*check_syntax(char *str);
 
 #endif

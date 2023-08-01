@@ -6,7 +6,7 @@
 /*   By: changhyl <changhyl@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 19:27:30 by changhyl          #+#    #+#             */
-/*   Updated: 2023/07/27 22:58:46 by changhyl         ###   ########.fr       */
+/*   Updated: 2023/08/01 19:55:19 by changhyl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,6 @@ t_tk	*init_tk(void)
 	new_tk->redirect_l = 0;
 	new_tk->redirect_r = 0;
 	new_tk->pipeline = 0;
+	new_tk->new_sig = 1;
 	return (new_tk);
 }
