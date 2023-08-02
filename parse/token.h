@@ -6,7 +6,7 @@
 /*   By: changhyl <changhyl@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 20:41:21 by changhyl          #+#    #+#             */
-/*   Updated: 2023/08/02 19:00:49 by changhyl         ###   ########.fr       */
+/*   Updated: 2023/08/02 21:33:58 by changhyl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ typedef struct s_tk_list
 }	t_tk_list;
 
 size_t		tk_strlen(const char *s);
+int			is_a_or_d(char c);
 char		*tk_strjoin(t_tk *tk, char s2);
 t_tk_list	*init_tk_list(void);
 t_tk		*init_tk(void);
