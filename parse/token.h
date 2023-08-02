@@ -6,14 +6,12 @@
 /*   By: changhyl <changhyl@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 20:41:21 by changhyl          #+#    #+#             */
-/*   Updated: 2023/08/01 19:54:33 by changhyl         ###   ########.fr       */
+/*   Updated: 2023/08/02 19:00:49 by changhyl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef TOKEN_H
 # define TOKEN_H
-
-# include <stdlib.h>
 
 typedef enum e_state
 {

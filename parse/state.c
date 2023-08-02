@@ -6,10 +6,11 @@
 /*   By: changhyl <changhyl@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 19:43:24 by changhyl          #+#    #+#             */
-/*   Updated: 2023/07/30 22:45:49 by changhyl         ###   ########.fr       */
+/*   Updated: 2023/08/02 19:01:18 by changhyl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "token.h"
 
 static int	is_outside(char c)
