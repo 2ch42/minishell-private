@@ -6,7 +6,7 @@
 /*   By: changhyl <changhyl@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 20:41:21 by changhyl          #+#    #+#             */
-/*   Updated: 2023/08/02 21:33:58 by changhyl         ###   ########.fr       */
+/*   Updated: 2023/08/04 01:52:28 by changhyl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ t_tk_list	*tokenize(char *str);
 void		syn_err_nl(t_tk_list *tk_list);
 void		syn_err_nnl(char *str, t_tk_list *tk_list);
 void		fill_tktype(t_tk_list *tk_list);
+char		*make_exp_key(t_tk *tk, int idx);
 t_tk_list	*check_syntax(char *str);
 
 #endif
