@@ -6,7 +6,7 @@
 /*   By: changhyl <changhyl@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 20:49:10 by changhyl          #+#    #+#             */
-/*   Updated: 2023/08/04 15:33:14 by changhyl         ###   ########.fr       */
+/*   Updated: 2023/08/04 15:54:44 by changhyl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static int	run_exp(t_tk *tk, int start_idx, int end_idx, char *value)
 	i = 0;
 	value_len = ft_strlen(value);
 	new_str_len = ft_strlen(tk->str) - (end_idx - start_idx + 1) + value_len;
-	new_str = (char *)malloc(sizeof(char) * (new_str_len + 1));
+	new_str = (char *)malloc_s(sizeof(char) * (new_str_len + 1));
 	while (i < start_idx)
 	{
 		*(new_str + i) = *(tk->str + i);
