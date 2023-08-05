@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   expand_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: changhyl <changhyl@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: junglee <junglee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 20:49:19 by changhyl          #+#    #+#             */
-/*   Updated: 2023/08/04 16:10:03 by changhyl         ###   ########.fr       */
+/*   Updated: 2023/08/04 19:40:43 by junglee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "token.h"
-#include "builtin.h"
+#include "wrapping.h"
 
 static int	is_ad(int c)
 {

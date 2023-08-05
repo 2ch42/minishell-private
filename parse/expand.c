@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   expand.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: changhyl <changhyl@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: junglee <junglee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 20:49:10 by changhyl          #+#    #+#             */
-/*   Updated: 2023/08/04 15:54:44 by changhyl         ###   ########.fr       */
+/*   Updated: 2023/08/04 20:46:00 by junglee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "token.h"
-#include "builtin.h"
+#include "wrapping.h"
 
 static char	*get_new_str(t_tk *tk, char *new_str, int i, int end_idx)
 {
@@ -95,7 +95,7 @@ static void	check_exp(t_tk *tk, t_hash_map *hash_map)
 			while (*(tk->str + i) != '\'')
 				i++;
 		}
-		if (*(tk->str + i) == '\"')
+		else if (*(tk->str + i) == '\"')
 		{
 			i++;
 			while (*(tk->str + i) != '\"')
@@ -105,7 +105,7 @@ static void	check_exp(t_tk *tk, t_hash_map *hash_map)
 				i++;
 			}
 		}
-		if (*(tk->str + i) == '$')
+		else if (*(tk->str + i) == '$')
 			i = value_exp(tk, i, hash_map);
 		i++;
 	}
@@ -126,6 +126,13 @@ t_tk_list	*mini_expand(char *str, t_hash_map *hash_map)
 	{
 		if (tk->tktype == word && tk->str != NULL)
 			check_exp(tk, hash_map);
+		tk = tk->next;
+	}
+	tk = tk_list->head;
+	while (tk != NULL)
+	{
+		if (tk->tktype == word && tk->str != NULL)
+			del_q(tk);
 		tk = tk->next;
 	}
 	return (tk_list);

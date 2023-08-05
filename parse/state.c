@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   state.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: changhyl <changhyl@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: junglee <junglee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 19:43:24 by changhyl          #+#    #+#             */
-/*   Updated: 2023/08/02 19:01:18 by changhyl         ###   ########.fr       */
+/*   Updated: 2023/08/04 19:44:11 by junglee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "token.h"
 
-static int	is_outside(char c)
+int	is_outside(char c)
 {
 	if (c == ' ' || c == '\t' || c == '\v'
 		|| c == '\f' || c == '\r')
